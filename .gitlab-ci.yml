@@ -1,0 +1,22 @@
+default:
+  image: lorisleiva/laravel-docker:latest
+  services:
+    - mysql:5.7
+
+variables:
+  MYSQL_DATABASE: unittest_db
+  MYSQL_ROOT_PASSWORD: secret
+  DB_HOST: mysql
+  DB_USERNAME: root
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - cp .env.example .env
+    - composer install
+    - php artisan key:generate
+    - php artisan migrate
+    - vendor/bin/phpunit
