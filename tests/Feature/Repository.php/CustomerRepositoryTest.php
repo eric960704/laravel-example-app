@@ -23,6 +23,9 @@ class CustomerRepositoryTest extends TestCase
         $this->customer_repository = new CustomerRepository();
     }
 
+    /**
+     * 測試取得所有客戶
+     */
     public function testGetCustomers(): void
     {
         $office = Office::factory()

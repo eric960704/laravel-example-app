@@ -14,6 +14,9 @@ class CustomerServiceTest extends TestCase
 {
     use RefreshDatabase;
 
+    /**
+     * 測試取得客戶列表
+     */
     public function testGetCustomers(): void
     {
         $office = Office::factory()

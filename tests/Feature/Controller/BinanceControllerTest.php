@@ -8,6 +8,9 @@ use Mockery\MockInterface;
 
 class BinanceControllerTest extends TestCase
 {
+    /**
+     * 測試取得單一幣別的價格
+     */
     public function testGetPriceOfSymbol()
     {
         $expected = [    

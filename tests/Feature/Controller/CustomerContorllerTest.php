@@ -15,6 +15,9 @@ class CustomerContorllerTest extends TestCase
 {
     use RefreshDatabase;
     
+    /**
+     * 測試取得客戶
+     */
     public function testGetCustomers(): void
     {
         $office = Office::factory()
