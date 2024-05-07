@@ -4,12 +4,8 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BinanceController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\ExperimentFunction\TestQueueController;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
 
 Route::get('/users', [UserController::class, 'getUsers']);
 Route::get('/user/{id}', [UserController::class, 'getUser']);
@@ -29,4 +25,8 @@ Route::prefix('car_dealer')->group(function () {
 
 Route::prefix('binance')->group(function () {
     Route::post('/price', [BinanceController::class, 'getPriceOfSymbol']);
+});
+
+Route::prefix('experiment')->group(function () {
+    Route::get('/queue', [TestQueueController::class, 'testCreateQueue']);
 });

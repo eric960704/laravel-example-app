@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Jobs\ProcessPodcast;
 use App\Services\UserService;
 use App\Transformers\UserTransformer;
 use Illuminate\Http\Response;
