@@ -4,7 +4,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BinanceController;
-use App\Http\Controllers\ExperimentFunction\TestQueueController;
+use App\Http\Controllers\ExperimentFunction\TestController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/users', [UserController::class, 'getUsers']);
@@ -28,5 +28,6 @@ Route::prefix('binance')->group(function () {
 });
 
 Route::prefix('experiment')->group(function () {
-    Route::get('/queue', [TestQueueController::class, 'testCreateQueue']);
+    Route::get('/queue', [TestController::class, 'testCreateQueue']);
+    Route::get('/telegram_bot', [TestController::class, 'testTelegramBot']);
 });
