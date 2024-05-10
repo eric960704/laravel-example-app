@@ -35,5 +35,11 @@ return [
         'token' => env('TELEGRAM_BOT_TOKEN')
     ],
 
-    'telegram_user_id' => env('TELEGRAM_USER_ID')
+    'telegram_user_id' => env('TELEGRAM_USER_ID'),
+
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT'),
+    ],
 ];
