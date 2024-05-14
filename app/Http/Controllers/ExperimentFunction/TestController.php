@@ -3,14 +3,16 @@
 namespace App\Http\Controllers\ExperimentFunction;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ExperimentFunction\TestRequest;
 use App\Jobs\ProcessPodcast;
-use GuzzleHttp\Psr7\Request;
 use Telegram\Bot\Laravel\Facades\Telegram;
 use Telegram\Bot\Api;
 use Illuminate\Support\Facades\Http;
 use WebSocket\Client;
 use WebSocket\Middleware\CloseHandler;
 use WebSocket\Middleware\PingResponder;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TestController extends Controller
 {
@@ -56,5 +58,16 @@ class TestController extends Controller
         $message = $client->receive();
 
         return $message;
+    }
+
+    public function testStorage(TestRequest $request)
+    {
+        $file = $request->file('image');
+
+        $contents = file_get_contents($file->path());
+
+        Storage::put('images/image1.png', $contents);
+        
+        return 'done';
     }
 }
