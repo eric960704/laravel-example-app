@@ -11,6 +11,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/socialite": "^5.14",
         "laravel/tinker": "^2.9",
+        "phrity/websocket": "^2.0",
         "predis/predis": "^2.2",
         "pusher/pusher-php-server": "^7.2"
     },

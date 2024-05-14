@@ -31,4 +31,5 @@ Route::prefix('experiment')->group(function () {
     Route::get('/queue', [TestController::class, 'testCreateQueue']);
     Route::get('/telegram_bot', [TestController::class, 'testTelegramBot']);
     Route::get('/weather', [TestController::class, 'getWeather']);
+    Route::get('/binance_websocket', [TestController::class, 'connectBinanceWebsocket']);
 });
