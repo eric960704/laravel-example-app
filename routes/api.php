@@ -33,4 +33,5 @@ Route::prefix('experiment')->group(function () {
     Route::get('/weather', [TestController::class, 'getWeather']);
     Route::get('/binance_websocket', [TestController::class, 'connectBinanceWebsocket']);
     Route::post('/storage', [TestController::class, 'testStorage']);
+    Route::get('/open_ai', [TestController::class, 'testOpenAI']);
 });

@@ -13,6 +13,7 @@ use WebSocket\Middleware\CloseHandler;
 use WebSocket\Middleware\PingResponder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use OpenAI\Laravel\Facades\OpenAI;
 
 class TestController extends Controller
 {
@@ -69,5 +70,17 @@ class TestController extends Controller
         Storage::put('images/image1.png', $contents);
         
         return 'done';
+    }
+
+    public function testOpenAI()
+    {
+        $result = OpenAI::chat()->create([
+            'model' => 'gpt-3.5-turbo',
+            'messages' => [
+                ['role' => 'user', 'content' => 'Hello!'],
+            ],
+        ]);
+        
+        return $result->choices[0]->message->content;
     }
 }
